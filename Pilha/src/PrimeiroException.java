@@ -4,15 +4,15 @@ public class Fluxo {
 //O primeiro método executado é o main
     public static void main(String[] args) {
         System.out.println("Ini do main");
-        metodo1(); //o main tem uma chamada de metodo
-        //então precisa executar o metodo1 para finalizar
+        metodo1(); //o main precisa executar o metodo1 para 
+        //finalizar o main
         System.out.println("Fim do main");
     }
 
     private static void metodo1() {
         System.out.println("Ini do metodo1");
-        metodo2();//o metodo1 tem uma chamada de 
-        //metodo então precisar executar o metodo2 para finalizar
+        metodo2();//precisar executar o metodo2 para finalizar
+        // o metodo1
         System.out.println("Fim do metodo1");
     }
 
@@ -23,8 +23,7 @@ public class Fluxo {
         }
         //não tem nenhuma chamada de metodo então é finalizado,
         // e nesse exemplo os métodos em espera terminam a execução
-        // na sequência  fim metodo2 >fim metodo1>fim main demonstrando 
-        // a Pilha de execução no Java
+        // na sequência  fim metodo2 >fim metodo1>fim main
         System.out.println("Fim do metodo2");
     }
 }
