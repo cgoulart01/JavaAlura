@@ -1,12 +1,14 @@
 
 public class TesteConexao {
 public static void main(String[] args) {
+	Conexao connect = null;
 	try {
-		Conexao connect = new Conexao();
+		connect = new Conexao();
 		connect.leDados();
-		connect.fecha();
 	}catch(IllegalStateException x) {
 		System.out.println(x.getMessage());
+	}finally {
+		connect.fecha();
 	}
 }
 }
