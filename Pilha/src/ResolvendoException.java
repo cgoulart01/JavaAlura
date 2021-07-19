@@ -23,7 +23,9 @@ public class ResolvendoException {
         try{ 
         	int a = 1/0;
         }catch(ArithmeticException x){
-        	String a = "problema resolvido";
+        	String msg = x.getMessage(); //o getMessagem() mostra qual Exception
+        	String a = "problema ("+msg+ ") resolvido";
+        	x.printStackTrace(); // imprime o rastro do Exception
         	System.out.println(a);
         }   
         // mas o utilizando  o try/catch resolvemos a exception e o bloco de código
