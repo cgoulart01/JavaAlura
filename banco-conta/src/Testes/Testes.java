@@ -1,5 +1,5 @@
-package entities;
-
+package Testes;
+import Modelo.*;
 public class Testes {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package entities;
+package Modelo;
 
 public class Cliente {
 		private String nome;

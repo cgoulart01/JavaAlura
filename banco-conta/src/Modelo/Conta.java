@@ -1,4 +1,4 @@
-package entities;
+package Modelo;
 
 public abstract class Conta {
 	private Cliente cliente;
