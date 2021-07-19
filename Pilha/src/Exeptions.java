@@ -6,7 +6,7 @@ public class Exeptions {
         System.out.println("Ini do main");
         try {
         metodo1();
-        }catch(ArithmeticException|NullPointerException x) {
+        }catch(Exception x) {
         	String msg = x.getMessage(); 
             x.printStackTrace();  
         	System.out.println("problema ("+msg+") resolvido");
@@ -23,7 +23,7 @@ public class Exeptions {
     private static void metodo2() {
         System.out.println("Ini do metodo2");
         //throw só pode ser usado para as exceptions
-        throw new NullPointerException("Deu Errado"); 
+        throw new MinhaException("Deu muito Errado"); 
        
     }
 }
