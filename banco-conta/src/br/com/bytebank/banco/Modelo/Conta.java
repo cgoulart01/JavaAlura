@@ -1,5 +1,4 @@
-package Modelo;
-
+package br.com.bytebank.banco.Modelo;
 public abstract class Conta {
 	private Cliente cliente;
 	private double saldo;

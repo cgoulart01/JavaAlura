@@ -1,4 +1,4 @@
-package Modelo;
+package br.com.bytebank.banco.Modelo;
 
 public class ContaCorrente extends Conta {
 	

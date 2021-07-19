@@ -1,5 +1,8 @@
-package Testes;
-import Modelo.*;
+package br.com.bytebank.banco.Testes;
+import br.com.bytebank.banco.Modelo.Cliente;
+import br.com.bytebank.banco.Modelo.Conta;
+import br.com.bytebank.banco.Modelo.ContaCorrente;
+import br.com.bytebank.banco.Modelo.ContaPoupanca;
 public class Testes {
 
 	public static void main(String[] args) {
