@@ -6,14 +6,13 @@ public abstract class Conta {
 	private Integer agencia;
 	private Integer conta;
 
-	public Conta(Cliente cliente,Integer agencia, Integer conta) {
+	public Conta(Cliente cliente, Integer agencia, Integer conta) {
 		this.cliente = cliente;
 		setAgencia(agencia);
 		setConta(conta);
 		saldo = 0;
 		cabecalhoInicial();
-	
-		
+
 	}
 
 	public Cliente getCliente() {
@@ -37,47 +36,49 @@ public abstract class Conta {
 	public Integer getConta() {
 		return conta;
 	}
-public void cabecalhoInicial() {
-	System.out.println("Criando Conta...");
-	cabecalho();
-	System.out.println("Conta criada!");
-};
+
+	public void cabecalhoInicial() {
+		System.out.println("Criando Conta...");
+		cabecalho();
+		System.out.println("Conta criada!");
+	};
+
 	public void cabecalho() {
 		Cliente cliente = this.cliente;
 		System.out.println();
 		System.out.println("Nome titular: " + cliente.getNome());
 		System.out.println("Tipo da Conta: " + this.tipo());
-		System.out.println("Agencia: "+this.getAgencia());
-		System.out.println("conta: "+this.getConta());
+		System.out.println("Agencia: " + this.getAgencia());
+		System.out.println("conta: " + this.getConta());
 		System.out.println("saldo atual:" + this.getSaldo());
 		System.out.println();
 	}
-public void setConta(Integer conta) {
+
+	public void setConta(Integer conta) {
 		this.conta = conta;
 	}
 
 	public double getSaldo() {
 		return saldo;
 	}
-	
+
 	public void deposita(double saldo) {
 		this.saldo += saldo;
 	}
-	public boolean transfere(double valor, Conta destino) {
-		if (this.saldo >= valor) {
-			this.saldo -= valor;
-			destino.deposita(valor);
-			return true;
+// refatorado usando Excepition
+	public void transfere(double valor, Conta destino) {
+		if (this.saldo < valor) {
+			throw new SaldoInsuficienteException("Saldo em conta Insuficiente para Transação!");
 		}
-		return false;
+		this.saldo -= valor;
+		destino.deposita(valor);
 	}
 
 	public void saca(double valor) {
 		if (valor < this.saldo) {
-			System.out.println("valor invalido");
-		} else {
-			this.saldo -= valor;
+			throw new SaldoInsuficienteException("Saldo em conta Insuficiente para Transação!");
 		}
+		this.saldo -= valor;
 
 	}
 
