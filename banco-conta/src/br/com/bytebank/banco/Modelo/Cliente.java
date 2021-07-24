@@ -1,4 +1,13 @@
 package br.com.bytebank.banco.Modelo;
+/**
+ * Classe que padroniza os clientes
+ * 
+ * 
+ * @author cgoulart01
+ * @version 1.0
+ * 
+ * */
+
 
 public class Cliente {
 		private String nome;

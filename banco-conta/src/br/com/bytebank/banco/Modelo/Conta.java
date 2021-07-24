@@ -1,10 +1,23 @@
 package br.com.bytebank.banco.Modelo;
+/**
+ * Classe que padroniza uma conta abstrata
+ * @author cgoulart01
+ * 
+ * */
 public abstract class Conta {
 	private Cliente cliente;
 	private double saldo;
 	private Integer agencia;
 	private Integer conta;
-
+/**
+ *
+ * @author cgoulart01
+ * pra fazer uma conta precisa ser um cliente cadastrado,
+ * inserir uma agencia e uma conta.
+ * @param cliente
+ * @param agencia
+ * @param conta
+ * */
 	public Conta(Cliente cliente, Integer agencia, Integer conta) {
 		this.cliente = cliente;
 		setAgencia(agencia);
@@ -64,8 +77,16 @@ public abstract class Conta {
 	public void deposita(double saldo) {
 		this.saldo += saldo;
 	}
-// refatorado usando Excepition
-	public void transfere(double valor, Conta destino) {
+/***
+ * 
+ *o valor de transferencia precisa ser maior ou igual ao saldo
+ * caso contrário é executado o alerta de Saldo Insuficiente!.
+ *  @param valor
+ *  @param destino
+ *  @throws SaldoInsuficienteException
+ * 
+*/
+public void transfere(double valor, Conta destino) {
 		if (this.saldo < valor) {
 			throw new SaldoInsuficienteException("Saldo em conta Insuficiente para Transação!");
 		}
@@ -73,6 +94,14 @@ public abstract class Conta {
 		destino.deposita(valor);
 	}
 
+/***
+ * 
+ *o valor de saque precisa ser maior ou igual ao saldo
+ * caso contrário é executado o alerta de Saldo Insuficiente!.
+ *  @param valor
+ *  @throws SaldoInsuficienteException
+ * 
+*/
 	public void saca(double valor) {
 		if (valor < this.saldo) {
 			throw new SaldoInsuficienteException("Saldo em conta Insuficiente para Transação!");
